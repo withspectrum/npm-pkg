@@ -1,5 +1,5 @@
 {
-  "presets": [["env", {
+  "presets": ["flow", ["env", {
     "targets": {
       "node": true
     }
