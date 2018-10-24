@@ -9,31 +9,37 @@
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
-    "precommit": "lint-staged",
     "prebuild": "rimraf dist",
     "build": "babel src --out-dir dist --ignore '*.test.js'",
     "test": "jest src",
-    "prettier": "prettier --write --single-quote --trailing-comma es5 'src/**/*.js'",
-    "flow": "flow src"
+    "prettier": "prettier",
+    "flow-typed": "flow-typed",
+    "flow": "flow"
   },
   "lint-staged": {
     "*.js": [
-      "prettier --write --single-quote --trailing-comma es5",
+      "yarn run flow focus-check",
+      "yarn run prettier",
       "git add"
     ]
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "^6.23.0",
-    "flow-bin": "^0.80.0",
-    "husky": "^0.14.3",
+    "flow-bin": "^0.83.0",
+    "flow-typed": "^2.5.1",
+    "husky": "^1.1.2",
     "jest": "^23.6.0",
     "lint-staged": "^7.3.0",
     "prettier": "^1.14.3",
     "rimraf": "^2.6.2"
   },
-  "dependencies": {
-    "babel-plugin-transform-react-jsx": "^6.24.1"
+  "dependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
