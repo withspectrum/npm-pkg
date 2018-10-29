@@ -4,6 +4,7 @@ node_js:
 script:
   - node --version
   - yarn --version
+  - yarn run flow
   - yarn run test
 notifications:
   email: false
